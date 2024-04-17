@@ -5,7 +5,7 @@ import React from 'react';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'authentication',
+	title: 'threads authentication',
 	description: 'authentication for the users',
 };
 
