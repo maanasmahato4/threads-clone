@@ -5,6 +5,7 @@ interface InputProps {
 	onChange: React.ChangeEventHandler<HTMLInputElement>;
 	type?: string;
 	value: string;
+	name: string;
 	label: string;
 	errorMessage?: string;
 }
@@ -14,21 +15,25 @@ export const Input: React.FC<InputProps> = ({
 	onChange,
 	type = 'text',
 	value,
+	name,
 	label,
 	errorMessage,
 }): React.ReactElement => {
 	return (
 		<div className='relative'>
 			<input
-				className='peer block w-full appearance-none rounded-md border-gray-500 border-2 pb-1 ps-6 pt-6 invalid:border-b-2 focus:outline-none focus:ring-0'
+				className='peer block w-full appearance-none rounded-md border-2 border-gray-500 pb-1 ps-6 pt-6 invalid:border-b-2 focus:outline-none focus:ring-0'
 				onChange={onChange}
 				type={type}
 				value={value}
 				id={id}
 				placeholder=' '
+				name={name}
 			/>
 			{errorMessage && errorMessage != '' ? (
-				<span className='text-red-600'>{errorMessage}</span>
+				<span>
+					<p className='text-red-500'>{errorMessage}</p>
+				</span>
 			) : null}
 			<label
 				htmlFor={id}
