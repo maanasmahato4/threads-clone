@@ -1,3 +1,4 @@
+import { TUser } from '@/@types';
 import User from '@/lib/models/user';
 import Compare from '@/lib/utils/compare';
 import { AuthOptions } from 'next-auth';
@@ -36,21 +37,20 @@ export const authOptions: AuthOptions = {
 					throw new Error('passwords does not match');
 				}
 
-				const {
-					_id,
-					image,
-					emailVerified,
-					sessions,
-					accounts,
-					createdAt,
-					updatedAt,
-					...userDetails
-				} = user;
-
-				return userDetails;
+				return user;
 			},
 		}),
 	],
+	callbacks: {
+		async jwt({ token, user }) {
+			if (user) token.user = user as unknown as TUser;
+			return token;
+		},
+		async session({ token, session }) {
+			session.user = token.user;
+			return session;
+		},
+	},
 };
 
 const handler = NextAuth(authOptions);
