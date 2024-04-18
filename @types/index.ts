@@ -11,3 +11,8 @@ export type TUser = {
 	createdAt: string;
 	updatedAt: string;
 };
+
+export type IUser = {
+	username: string;
+	email: string;
+};

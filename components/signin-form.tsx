@@ -5,7 +5,7 @@ import { z } from 'zod';
 import { Input } from './input';
 import { Button } from './ui/button';
 import { ChangeEvent, FormEvent, useState } from 'react';
-import { registerUser } from '@/lib/server-actions/auth-actions/auth-actions';
+import { signIn } from 'next-auth/react';
 
 const FormSchema = z
 	.object({
@@ -43,9 +43,12 @@ export default function SignInForm() {
 		e.preventDefault();
 		try {
 			FormSchema.parse(user);
-			//const result = await registerUser(user);
-			//console.log(result);
-			console.log(user);
+			const result = await signIn('credentials', {
+				email: user.email,
+				password: user.password,
+				callbackUrl: '/',
+			});
+			console.log(result);
 		} catch (error) {
 			if (error instanceof z.ZodError) {
 				// Extract error messages from the ZodError
