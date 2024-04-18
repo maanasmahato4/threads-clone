@@ -4,7 +4,6 @@ import { z } from 'zod';
 
 import { Input } from './input';
 import { Button } from './ui/button';
-import { Checkbox } from './ui/checkbox';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { registerUser } from '@/lib/server-actions/auth-actions/auth-actions';
 

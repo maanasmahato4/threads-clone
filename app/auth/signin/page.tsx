@@ -7,6 +7,7 @@ import {
 } from '@/components/ui/card';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import SignInForm from '@/components/signin-form';
 
 export const metadata: Metadata = {
 	title: 'sign in',
@@ -18,10 +19,10 @@ function SignIn() {
 		<div className='flex items-center justify-center h-screen'>
 			<Card>
 				<CardHeader>
-					<CardTitle>Sign Up</CardTitle>
+					<CardTitle>Sign In</CardTitle>
 				</CardHeader>
 				<CardContent>
-					<p>Card Content</p>
+					<SignInForm />
 				</CardContent>
 				<CardFooter>
 					{"Don't have an account?"}&nbsp;
