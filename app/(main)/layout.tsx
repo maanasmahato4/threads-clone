@@ -15,10 +15,10 @@ export default function RootLayout({
 	return (
 		<div className='h-screen flex flex-col'>
 			<Header />
-			<div className='flex-grow grid grid-rows-1 grid-cols-5 gap-x-5'>
-				<LeftBar className='col-span-1 shadow-sm' />
-				<section className='col-span-3'>{children}</section>
-				<RightBar className='col-span-1 shadow-sm' />
+			<div className='flex-grow grid grid-rows-1 grid-cols-12 gap-x-5'>
+				<LeftBar className='col-span-2 shadow-sm' />
+				<section className='col-span-7'>{children}</section>
+				<RightBar className='col-span-3 shadow-sm' />
 			</div>
 		</div>
 	);
