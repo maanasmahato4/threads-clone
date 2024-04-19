@@ -1,4 +1,6 @@
-import Header from '@/components/header';
+import LeftBar from '@/components/left-bar';
+import RightBar from '@/components/right-bar';
+import Header from '@/components/top-bar';
 import type { Metadata } from 'next';
 export const metadata: Metadata = {
 	title: 'Threads',
@@ -11,9 +13,13 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<div>
+		<div className='h-screen flex flex-col'>
 			<Header />
-			<div>{children}</div>
+			<div className='flex-grow grid grid-rows-1 grid-cols-5 gap-x-5'>
+				<LeftBar className='col-span-1 shadow-sm' />
+				<section className='col-span-3'>{children}</section>
+				<RightBar className='col-span-1 shadow-sm' />
+			</div>
 		</div>
 	);
 }

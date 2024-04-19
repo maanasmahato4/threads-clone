@@ -1,3 +1,5 @@
+'use client';
+
 import React, { createContext, useState } from 'react';
 
 interface ThemeContextProps {
@@ -15,7 +17,7 @@ export const ThemeContextProvider = ({
 }: {
 	children: React.ReactNode;
 }) => {
-	const [theme, setTheme] = useState<string>('');
+	const [theme, setTheme] = useState<string>('dark');
 	return (
 		<ThemeContext.Provider value={{ theme, setTheme }}>
 			{children}
