@@ -14,11 +14,12 @@ import { Label } from '@/components/ui/label';
 import { signOut, useSession } from 'next-auth/react';
 import { useContext, useState } from 'react';
 import { ThemeContext } from '@/context/theme-context';
+import { Plus } from 'lucide-react';
 
 export default function Header() {
 	const { data: session } = useSession();
 	const [open, setOpen] = useState<boolean>(false);
-	const { theme } = useContext(ThemeContext);
+	const { theme, setTheme } = useContext(ThemeContext);
 
 	const handleSignOut = async (e: React.MouseEvent) => {
 		e.preventDefault();
@@ -46,11 +47,26 @@ export default function Header() {
 							{session?.user.username}
 						</DropdownMenuLabel>
 						<DropdownMenuSeparator />
+						<DropdownMenuItem>
+							<span className='flex flex-row gap-x-2'>
+								<Plus size={24} />
+								<p>Create Organization</p>
+							</span>
+						</DropdownMenuItem>
 						<DropdownMenuItem
-							className='flex justify-center gap-2'
+							className='flex pl-2 gap-2'
 							onClick={() => setOpen(true)}
 						>
-							<Switch id='change-theme' />
+							<Switch
+								id='change-theme'
+								onCheckedChange={(checked) => {
+									checked
+										? localStorage.setItem('theme', 'dark')
+										: localStorage.setItem('theme', '');
+									setTheme(checked ? 'dark' : '');
+								}}
+								checked={theme === 'dark'}
+							/>
 							<Label htmlFor='change-theme'>Dark Mode</Label>
 						</DropdownMenuItem>
 						<DropdownMenuItem className='flex justify-center'>

@@ -9,7 +9,6 @@ export default function ThemeProvider({
 	children: React.ReactNode;
 }) {
 	const { theme } = useContext(ThemeContext);
-	console.log(theme);
 	return (
 		<html lang='en' className={theme}>
 			{children}

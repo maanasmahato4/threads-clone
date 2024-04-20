@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 interface ThemeContextProps {
 	theme: string;
@@ -17,7 +17,16 @@ export const ThemeContextProvider = ({
 }: {
 	children: React.ReactNode;
 }) => {
-	const [theme, setTheme] = useState<string>('dark');
+	const [theme, setTheme] = useState<string>('');
+
+	useEffect(() => {
+		// This code will only run on the client side
+		const existingTheme = localStorage.getItem('theme');
+		if (existingTheme) {
+			setTheme(existingTheme);
+		}
+	}, []);
+
 	return (
 		<ThemeContext.Provider value={{ theme, setTheme }}>
 			{children}
