@@ -29,7 +29,7 @@ export default function Header() {
 		<header
 			className={`shadow-md ${theme === 'dark' ? 'bg-zinc-900' : 'bg-white'}`}
 		>
-			<nav className='flex flex-row justify-between items-center px-12 py-4'>
+			<nav className='flex flex-row justify-between items-center px-12 py-2'>
 				<Link href='/'>
 					<h3 className='text-xl italic'>Threads</h3>
 				</Link>

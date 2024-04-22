@@ -19,22 +19,16 @@ type UserType = Omit<
 
 DBConnection();
 
-export const registerUser = async (user: UserType) => {
+export const registerUser = async (user: UserType): Promise<void> => {
 	try {
 		const userExist = await User.findOne({ email: user.email });
 		if (userExist) {
 			throw new Error('user already exists');
 		}
-		const result = await User.create({
+		await User.create({
 			...user,
 			password: await Hash(user.password),
 		});
-		const resultUser = {
-			_id: result._id.toString(),
-			username: result.username,
-			email: result.email,
-		};
-		return resultUser;
 	} catch (error: any) {
 		console.error(error);
 		throw new Error(error.message);

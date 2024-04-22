@@ -23,22 +23,19 @@ const UserModel = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		emailVerified: {
-			type: Date,
-		},
 		phone: {
 			type: String,
 		},
-		sessions: [
+		threads: [
 			{
 				type: mongoose.Schema.Types.ObjectId,
-				ref: 'Session',
+				ref: 'Thread',
 			},
 		],
-		accounts: [
+		communities: [
 			{
 				type: mongoose.Schema.Types.ObjectId,
-				ref: 'Account',
+				ref: 'Community',
 			},
 		],
 	},

@@ -55,8 +55,7 @@ export default function SignUpForm() {
 		e.preventDefault();
 		try {
 			FormSchema.parse(user);
-			const result = await registerUser(user);
-			console.log(result);
+			await registerUser(user);
 		} catch (error) {
 			if (error instanceof z.ZodError) {
 				// Extract error messages from the ZodError

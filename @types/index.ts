@@ -6,8 +6,8 @@ export type TUser = {
 	password: string;
 	emailVerified: Date;
 	phone: string;
-	sessions: string[];
-	accounts: string[];
+	threads: string[];
+	communities: string[];
 	createdAt: string;
 	updatedAt: string;
 };
