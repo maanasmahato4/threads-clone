@@ -16,7 +16,7 @@ export const leftBarLinks = [
 	},
 	{
 		imgURL: '/assets/create.svg',
-		route: '/create-thread',
+		route: '/create',
 		label: 'Create Thread',
 	},
 	{

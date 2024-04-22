@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/card';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import SignInForm from '@/components/signin-form';
+import SignInForm from '@/components/forms/signin-form';
 
 export const metadata: Metadata = {
 	title: 'sign in',

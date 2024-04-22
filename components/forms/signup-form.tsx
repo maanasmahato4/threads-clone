@@ -2,8 +2,8 @@
 
 import { z } from 'zod';
 
-import { Input } from './input';
-import { Button } from './ui/button';
+import { Input } from '../input';
+import { Button } from '../ui/button';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { registerUser } from '@/lib/server-actions/auth-actions/auth-actions';
 

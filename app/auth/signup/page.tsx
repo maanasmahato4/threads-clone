@@ -8,7 +8,7 @@ import {
 import Link from 'next/link';
 
 import { Metadata } from 'next';
-import SignUpForm from '@/components/signup-form';
+import SignUpForm from '@/components/forms/signup-form';
 
 export const metadata: Metadata = {
 	title: 'signup',
